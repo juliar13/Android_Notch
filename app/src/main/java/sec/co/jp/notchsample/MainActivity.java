@@ -28,10 +28,15 @@ public class MainActivity extends AppCompatActivity {
      * @return Statusbar size
      */
     public static int getStatusBarHeight(Activity activity){
+        Log.d("MainActivity","getStatusBarHeight");
+
         final Rect rect = new Rect();
         Window window = activity.getWindow();
         window.getDecorView().getWindowVisibleDisplayFrame(rect);
-        Log.d("MainActivity","status bar : " + String.valueOf(rect.top));
+        Log.d("MainActivity","status bar (top): " + String.valueOf(rect.top));
+        Log.d("MainActivity","status bar (bottom): " + String.valueOf(rect.bottom));
+        Log.d("MainActivity","status bar (left): " + String.valueOf(rect.left));
+        Log.d("MainActivity","status bar (right): " + String.valueOf(rect.right));
         return rect.top;
     }
 
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getNotchSize() {
+        Log.d(TAG,"getNotchSize()");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             Log.d(TAG,"---display cut---");
